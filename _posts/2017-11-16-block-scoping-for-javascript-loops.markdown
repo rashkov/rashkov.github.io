@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "printing/console.log from a for loop, block scoping, and ES5 vs ES6"
+title: "...in which our protagonist discovers the great power of ES6 block-scoped variables"
 date:   2017-11-16 15:24:35 -0500
-categories: javascript code
 ---
-...in which our protagonist discovers the great power of ES6 block-scoped variables
+The quirks of running console.log from within a Javascript for-loop was one of the first, horrifying discoveries that I made as a newly minted javascript developer. I quickly stopped using for-loops anywhere in my code and switched to underscore/lodash's looping constructs.
+
+Now with ES6 block scoping, for-loops are safe to use again! Let's have a look:
+
 {% highlight javascript %}
 // A simple async function that resolves immediately
 let asyncFn = ()=> {
