@@ -3,7 +3,7 @@ I think this terminal log demonstrates why I love Linux so much [1].
 
 I really enjoy the "manual-ness" of Linux, in the same way that driving stick-shift gives you finer control of the vehicle, or the way that riding a fixed gear bicycle gives you a feel for how your bike is making contact with the road. I was on my work laptop, and my screen was too bright. It's late at night and I want to shift it towards a yellow tint. Remove the blue lights and your sleep will be better, they say.
 
-Two commands! That's all it took to acccomplish the task.
+Two commands! That's all it took to accomplish the task.
 
 ```
 pacman -S redshift
@@ -12,13 +12,13 @@ pacman -S redshift
 This installs the open source program, redshift. Go ahead, feast your eyes on its magnificent code: https://github.com/jonls/redshift
 It's a wonderful program which lets you control the tint of your screen.
 
-The second command sets the screen to "candle light", which is a color temperature of 3400K. That brings me to my next command, in which I specified that exact color temperature: 
+The second command sets the screen to something akin to candle light, or a color temperature of 3400K. That brings me to my next command, in which I specified that exact color temperature: 
 
 ```redshift -o 3400```
 
 Wonderful! My screen was now at a perfect color temperature for coding in the evening.
 
-Except... the screen was too bright.
+Except... the screen is too bright.
 
 I need to invoke the xbacklight command. It adjusts my screen brightness.
 
@@ -29,12 +29,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 ```
 
-This binds my keyboard's backlight buttons, so that they issue commands to the xbacklight utility.
-You might be saying to yourself, "What a pain in the ass. Who bothers to map their keyboard keys to their favorite screen brightness utility?"
+This binds my keyboard's backlight buttons, so that they issue commands to the xbacklight utility and either increase or decrease the backlight by 2%.
 
-But I say to you, this is a most beautiful way to meld with your operating system. Linux can be a wonderfully sparse toolset!
+At this point I wouldn't blame you for saying to yourself, "What a pain in the ass. Who bothers to map their keyboard keys to their favorite screen brightness utility?"
 
-The reward for learning to program and to use fussy things like Linux, is that you get to take the putty of virtual reality into your hands, and shape it as you wish. This is a rare and special experience, and not to be taken for granted!
+But I say to you, this is a most beautiful way to meld with your operating system. Linux can be a wonderfully sparse toolset, and a blank canvas on which to develop your aesthetics.
+
+Learn to program, and truly use a fussy thing like Linux. Take the raw material of virtual reality into your hands, and shape it to your will. This is a rare and special experience, and not to be taken for granted in this world.
 
 
 [1] ```
