@@ -1,6 +1,3 @@
-I think this terminal log demonstrates why I love Linux so much [1].
-
-
 I really enjoy the "manual-ness" of Linux, in the same way that driving stick-shift gives you finer control of the vehicle, or the way that riding a fixed gear bicycle gives you a feel for how your bike is making contact with the road. I was on my work laptop, and my screen was too bright. It's late at night and I want to shift it towards a yellow tint. Remove the blue lights and your sleep will be better, they say.
 
 Two commands! That's all it took to accomplish the task.
@@ -38,7 +35,9 @@ But I say to you, this is a most beautiful way to meld with your operating syste
 If this piqued your interest and you'd like to discuss it further, please get at me via twitter @mrashkovsky or email (same handle, @gmail.com).
 
 
-[1] ```
+
+Linux terminal log, for the curious:
+```
 mike@haifa [02:36:50 AM] [~] 
 -> % sudo pacman -S redshift         
 [sudo] password for mike: 
