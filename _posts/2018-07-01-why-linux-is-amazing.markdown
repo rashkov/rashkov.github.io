@@ -1,7 +1,7 @@
 I think this terminal log demonstrates why I love Linux so much [1].
 
 
-I really enjoy the "manual-ness" of Linux, in the same way that driving stick-shift gives you finer control of the vehicle, or the way that riding a fixed gear bicycle gives you a feel for how your bike is making contact with the rode. I was on my work laptop, and my screen was too bright. It's late at night and I want to shift it towards a yellow tint. Remove the blue lights and your sleep will be better, they say.
+I really enjoy the "manual-ness" of Linux, in the same way that driving stick-shift gives you finer control of the vehicle, or the way that riding a fixed gear bicycle gives you a feel for how your bike is making contact with the road. I was on my work laptop, and my screen was too bright. It's late at night and I want to shift it towards a yellow tint. Remove the blue lights and your sleep will be better, they say.
 
 Two commands! That's all it took to acccomplish the task.
 
