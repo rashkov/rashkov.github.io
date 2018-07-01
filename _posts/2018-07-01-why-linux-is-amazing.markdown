@@ -35,7 +35,7 @@ At this point I wouldn't blame you for saying to yourself, "What a pain in the a
 
 But I say to you, this is a most beautiful way to meld with your operating system. Linux can be a wonderfully sparse toolset, and a blank canvas on which to develop your aesthetics.
 
-Learn to program, and truly use a fussy thing like Linux. Take the raw material of virtual reality into your hands, and shape it to your will. This is a rare and special experience, and not to be taken for granted in this world.
+If this piqued your interest and you'd like to discuss it further, please get at me via twitter @mrashkovsky or email (same handle, @gmail.com).
 
 
 [1] ```
