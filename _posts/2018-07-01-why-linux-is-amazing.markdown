@@ -32,8 +32,6 @@ At this point I wouldn't blame you for saying to yourself, "What a pain in the a
 
 But I say to you, this is a most beautiful way to meld with your operating system. Linux can be a wonderfully sparse toolset, and a blank canvas on which to develop your aesthetics.
 
-If this piqued your interest and you'd like to discuss it further, please get at me via twitter @mrashkovsky or email (same handle, @gmail.com).
-
 
 
 Linux terminal log, for the curious:
