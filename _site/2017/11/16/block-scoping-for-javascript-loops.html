@@ -10,7 +10,7 @@
   <meta name="description" content="Notes on programming, linux, and ancient text editors">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="rashkov.github.io/2017/11/16/block-scoping-for-javascript-loops.html">
+  <link rel="canonical" href="http://localhost:4000/2017/11/16/block-scoping-for-javascript-loops.html">
   <link rel="alternate" type="application/rss+xml" title="Rashkov&#39;s Notebook" href="/feed.xml">
   
   
@@ -80,7 +80,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>The quirks of running console.log from within a Javascript for-loop was one of the first, horrifying discoveries that I made as a newly minted javascript developer. I quickly stopped using for-loops anywhere in my code and switched to underscore/lodash’s looping constructs.</p>
+    <p>The quirks of running console.log from within a Javascript for-loop was one of the first, horrifying discoveries that I made as a newly minted javascript developer. I quickly stopped using for-loops anywhere in my code and switched to underscore/lodash’s looping constructs – _.each() and _.map().</p>
 
 <p>Now with ES6 block scoping, for-loops are safe to use again! Let’s have a look:</p>
 

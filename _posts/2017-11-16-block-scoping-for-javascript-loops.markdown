@@ -3,7 +3,7 @@ layout: post
 title: "...in which our protagonist discovers the great power of ES6 block-scoped variables"
 date:   2017-11-16 15:24:35 -0500
 ---
-The quirks of running console.log from within a Javascript for-loop was one of the first, horrifying discoveries that I made as a newly minted javascript developer. I quickly stopped using for-loops anywhere in my code and switched to underscore/lodash's looping constructs.
+The quirks of running console.log from within a Javascript for-loop was one of the first, horrifying discoveries that I made as a newly minted javascript developer. I quickly stopped using for-loops anywhere in my code and switched to underscore/lodash's looping constructs -- _.each() and _.map().
 
 Now with ES6 block scoping, for-loops are safe to use again! Let's have a look:
 
