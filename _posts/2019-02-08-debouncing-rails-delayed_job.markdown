@@ -68,11 +68,11 @@ new_queued_job = self.delay(run_at: delay_seconds.seconds.from_now).index
 Rails.cache.write cache_key, new_queued_job, expires_in: delay_seconds.seconds
 {% endhighlight %}
 
-This creates a delayed job which is set to run in five seconds. Then we save a copy of that job to the Rails cache. We tell the cache to only store this item for 5 seconds.
+This creates a delayed job which is set to run in five seconds. Then we save an instance of that job model to the Rails cache. We tell the cache to only store this item for 5 seconds.
 
-Please note how we use a key which is unique to that particular model (since the cache key has the model's ID in it), this way our debounce is specific to a particular model and not all Fooz models. 
+Note that the cache key key is unique to that particular model since the cache key has the model's ID in it. This way our debounce is specific to a particular model and not all Fooz models. After all, we wouldn't want updates to model with id: 1 to destroy the delayed tasks of a model with id: 2.
 
-If update_index gets called again within the next five seconds, then we will find the old, not-yet-executed job waiting for us in the cache. We then destroy it before creating our new job, which prevents delayed_job from doing anything with it in the future. We then put the new job into the cache under the same cache key. If five seconds pass without update_index being called, then that job will expire from the cache and it will execute successfully.
+If update_index gets called again within the next five seconds, then we will find the old, not-yet-executed job waiting for us in the cache. We then destroy it before creating our new job, which prevents delayed_job from doing anything with it in the future. We then put the new job into the cache under the same cache key. If five seconds pass without update_index being called, then delayed_job's run_at threshold will be met, and it will run the task. That job model object will hit its expires_in threshold, and so it will be removed from the cache.
 
 Does it work? "Show us the receipts!", you say?
 
@@ -95,17 +95,20 @@ Does it work? "Show us the receipts!", you say?
   (0.7ms)  SELECT COUNT(*) FROM "delayed_jobs"
 1 Queued Jobs
 Current time: 2019-02-08 18:56:17 -0500
+
 [2] pry(main)> puts "#{Delayed::Job.count} Queued Jobs"; puts "Current time:
                   #{Time.now}";
   (0.8ms)  SELECT COUNT(*) FROM "delayed_jobs"
 1 Queued Jobs
 Current time: 2019-02-08 18:56:18 -0500
-[7] pry(main)> puts "#{Delayed::Job.count} Queued Jobs"; puts "Current time:
+
+[3] pry(main)> puts "#{Delayed::Job.count} Queued Jobs"; puts "Current time:
                   #{Time.now}";
   (0.8ms)  SELECT COUNT(*) FROM "delayed_jobs"
 1 Queued Jobs
 Current time: 2019-02-08 18:56:25 -0500
-[8] pry(main)> puts "#{Delayed::Job.count} Queued Jobs"; puts "Current time:
+
+[4] pry(main)> puts "#{Delayed::Job.count} Queued Jobs"; puts "Current time:
                   #{Time.now}";
   (0.7ms)  SELECT COUNT(*) FROM "delayed_jobs"
 0 Queued Jobs
@@ -137,6 +140,7 @@ desired when we passed the run_at option to the delay() method.
   (0.5ms)  SELECT COUNT(*) FROM "delayed_jobs"
 1 Queued Jobs
 Current time: 2019-02-08 18:59:42 -0500
+
 [2] pry(main)> Fooz.last.update_index; puts "#{Delayed::Job.count} Queued
         Jobs"; puts "Current time: #{Time.now}";
   Fooz Load (0.8ms)  SELECT  "fooz".* FROM "fooz" ORDER BY "fooz"."id" DESC
@@ -159,6 +163,7 @@ Current time: 2019-02-08 18:59:42 -0500
   (0.4ms)  SELECT COUNT(*) FROM "delayed_jobs"
 1 Queued Jobs
 Current time: 2019-02-08 18:59:43 -0500
+
 [3] pry(main)> Fooz.last.update_index; puts "#{Delayed::Job.count} Queued
         Jobs"; puts "Current time: #{Time.now}";
   Fooz Load (0.8ms)  SELECT  "fooz".* FROM "fooz" ORDER BY "fooz"."id" DESC
@@ -195,4 +200,4 @@ Current time: 2019-02-08 19:01:06 -0500
 
 Finally, checking the queue some time later, we find it empty again as our job completed and came off of the queue.
 
-In conclusion, debouncing is an amazing concept that is useful for rate limiting actions on the front-end, as well as the back-end.
+In conclusion, debouncing can be useful for rate limiting actions on the front-end, as well as the back-end. Are there some endpoints on your API that could use some rate limiting? If those endpoints are open to the world, then your service might be open to a Denial of Service attack.
