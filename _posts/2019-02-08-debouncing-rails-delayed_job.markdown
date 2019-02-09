@@ -38,7 +38,7 @@ Except, we still have to remember to call that index method one way or another. 
 
 One problem though: We have a webpage where someone enters the data for this model. That form has many inputs, and the data gets repeatedly POST'ed up to the model as each input is filled in turn. This is accomplished using JavaScript keyup events, or input blur events. We do this to avoid having a "submit" or a "save" button on the form. It's a delightful piece of the user experience, but unfortunately it introduces some complexity to our code.
 
-In this case, we don't want to the user to overwhelm our delayed_job server by updating the model many times within the span of a handful of seconds. If only we could repeatedly schedule this job with delayed_job, but do so in a debounced or throttled way where it only runs once every X seconds.
+In this case, we don't want to the user to overwhelm our delayed_job server by updating the model many times within the span of a few seconds. If only we could repeatedly schedule this job with delayed_job, but do so in a debounced or throttled way where it only runs once every X seconds.
 
 {% highlight ruby %}
 class Fooz < ApplicationRecord
@@ -60,7 +60,7 @@ end
 
 How does this work? 
 
-When we offload a method to delayed_job, as in self.delay.index (instead of the non-delayed self.index), we get back a delayed_job model. That model is an entry in delayed_job's table, which acts as a job queue that delayed_job regularly checks processes. 
+When we offload a method to delayed_job, as in self.delay.index (instead of the non-delayed self.index), we get back a delayed_job model. That model is an entry in delayed_job's table, which acts as a job queue that delayed_job regularly checks and processes. 
 
 The first time we call update_index, our cache is empty, so the only code to actually do anything is the following:
 {% highlight ruby %}
